@@ -1,0 +1,879 @@
+{
+	"info": {
+		"_postman_id": "f16048a0-d10f-42d8-9e72-59b2152868b1",
+		"name": "Meteomatics Weather API",
+		"description": "This is an example set to showcase some capabilities of the Meteomatics weather API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Timeseries",
+			"item": [
+				{
+					"name": "timeseries_json",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/todayT00:00:00ZP15D:PT1H/precip_1h:mm/47.5,7.5/json",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"todayT00:00:00ZP15D:PT1H",
+								"precip_1h:mm",
+								"47.5,7.5",
+								"json"
+							]
+						},
+						"description": "Timeseries example in json"
+					},
+					"response": []
+				},
+				{
+					"name": "timeseries_csv",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/todayT00:00:00Z--tomorrowT23:00:00Z:PT1H/wind_speed_10m:ms,wind_dir_10m:d/47.5,7.5/csv",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"todayT00:00:00Z--tomorrowT23:00:00Z:PT1H",
+								"wind_speed_10m:ms,wind_dir_10m:d",
+								"47.5,7.5",
+								"csv"
+							]
+						},
+						"description": "Timeseries example in csv "
+					},
+					"response": []
+				},
+				{
+					"name": "timeseries_html",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/todayT00:00:00ZP15D:PT1H/t_2m:C,t_10m:C,t_20m:C,t_50m:C,t_100m:C/47.5,7.5/html",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"todayT00:00:00ZP15D:PT1H",
+								"t_2m:C,t_10m:C,t_20m:C,t_50m:C,t_100m:C",
+								"47.5,7.5",
+								"html"
+							]
+						},
+						"description": "Timeseries example in html"
+					},
+					"response": []
+				},
+				{
+					"name": "timeseries_duration_template",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/{{start_date}}P{{duration}}:P{{resolution}}/{{parameters}}/{{location}}/{{format}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"{{start_date}}P{{duration}}:P{{resolution}}",
+								"{{parameters}}",
+								"{{location}}",
+								"{{format}}"
+							]
+						},
+						"description": "Timeseries example with variable fields"
+					},
+					"response": []
+				},
+				{
+					"name": "timeseries_range_template",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/{{start_date}}--{{end_date}}:P{{resolution}}/{{parameters}}/{{location}}/{{format}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"{{start_date}}--{{end_date}}:P{{resolution}}",
+								"{{parameters}}",
+								"{{location}}",
+								"{{format}}"
+							]
+						},
+						"description": "Timeseries example with variable fields"
+					},
+					"response": []
+				},
+				{
+					"name": "timeseries_csv",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"validdates\":\"todayT12ZP1D:PT1H\",\n\"parameters\":[\"wind_speed_10m:ms\", \"wind_dir_10m:d\"],\n\"location\":\"48,5\",\n\"format\":\"csv\"}"
+						},
+						"url": {
+							"raw": "https://api.meteomatics.com",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							]
+						},
+						"description": "Post request for time series data, possibility 1"
+					},
+					"response": []
+				},
+				{
+					"name": "timeseries_json",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "wind_speed_10m:ms,wind_dir_10m:d/48,5/json"
+						},
+						"url": {
+							"raw": "https://api.meteomatics.com/todayT12ZP1D:PT1H/",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"todayT12ZP1D:PT1H",
+								""
+							]
+						},
+						"description": "Post request for time series data, possibility 2"
+					},
+					"response": []
+				}
+			],
+			"description": "This query provides you a timeseries of selected parameters for different locations."
+		},
+		{
+			"name": "Grid",
+			"item": [
+				{
+					"name": "grid_json",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/todayT00:00:00Z/precip_1h:mm/50,-5_40,5:0.5,0.5/json",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"todayT00:00:00Z",
+								"precip_1h:mm",
+								"50,-5_40,5:0.5,0.5",
+								"json"
+							]
+						},
+						"description": "Grid example in json"
+					},
+					"response": []
+				},
+				{
+					"name": "grid_template",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/{{start_date}}/{{parameters}}/{{latitude_max}},{{longitude_min}}_{{latitude_min}},{{longitude_max}}:{{resolution_lat}},{{resolution_lon}}/{{format}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"{{start_date}}",
+								"{{parameters}}",
+								"{{latitude_max}},{{longitude_min}}_{{latitude_min}},{{longitude_max}}:{{resolution_lat}},{{resolution_lon}}",
+								"{{format}}"
+							]
+						},
+						"description": "Grid example with variable fields"
+					},
+					"response": []
+				}
+			],
+			"description": "Here you can get a grid of one parameter over a certain area at exactly one time step."
+		},
+		{
+			"name": "Grid Timeseries",
+			"item": [
+				{
+					"name": "grid_timeseries_json",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/todayT00:00:00Z--tomorrowT23:00:00Z:PT1H/precip_1h:mm/50,-5_40,5:0.5,0.5/json",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"todayT00:00:00Z--tomorrowT23:00:00Z:PT1H",
+								"precip_1h:mm",
+								"50,-5_40,5:0.5,0.5",
+								"json"
+							]
+						},
+						"description": "Grid timeseries in json"
+					},
+					"response": []
+				},
+				{
+					"name": "grid_timeseries_template",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/{{start_date}}--{{end_date}}:P{{resolution}}/{{parameters}}/{{latitude_max}},{{longitude_min}}_{{latitude_min}},{{longitude_max}}:{{resolution_lat}},{{resolution_lon}}/{{format}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"{{start_date}}--{{end_date}}:P{{resolution}}",
+								"{{parameters}}",
+								"{{latitude_max}},{{longitude_min}}_{{latitude_min}},{{longitude_max}}:{{resolution_lat}},{{resolution_lon}}",
+								"{{format}}"
+							]
+						},
+						"description": "Grid timeseries example with variable fields"
+					},
+					"response": []
+				}
+			],
+			"description": "This query provides you a grid of selected parameters (timeseries) over a certain area."
+		},
+		{
+			"name": "Grid as a png",
+			"item": [
+				{
+					"name": "grid_as_png",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/todayT00:00:00Z/t_2m:C/49,5.5_44,11:0.01,0.01/png?connector=python_v2.1.0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"todayT00:00:00Z",
+								"t_2m:C",
+								"49,5.5_44,11:0.01,0.01",
+								"png"
+							],
+							"query": [
+								{
+									"key": "connector",
+									"value": "python_v2.1.0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "grid_as_png_template",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/{{start_date}}/{{parameter}}/{{latitude_max}},{{longitude_min}}_{{latitude_min}},{{longitude_max}}:{{resolution_lat}},{{resolution_lon}}/png?connector=python_v2.1.0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"{{start_date}}",
+								"{{parameter}}",
+								"{{latitude_max}},{{longitude_min}}_{{latitude_min}},{{longitude_max}}:{{resolution_lat}},{{resolution_lon}}",
+								"png"
+							],
+							"query": [
+								{
+									"key": "connector",
+									"value": "python_v2.1.0"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "This query provides you the picture of one parameter in a certain area. As output you get a png."
+		},
+		{
+			"name": "Lightning Strikes",
+			"item": [
+				{
+					"name": "lightning_strikes_csv",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/get_lightning_list?time_range=yesterdayT00:00:00Z--now&bounding_box=90,-180_-90,180&format=cvs",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"get_lightning_list"
+							],
+							"query": [
+								{
+									"key": "time_range",
+									"value": "yesterdayT00:00:00Z--now"
+								},
+								{
+									"key": "bounding_box",
+									"value": "90,-180_-90,180"
+								},
+								{
+									"key": "format",
+									"value": "cvs"
+								}
+							]
+						},
+						"description": "Lightning strikes example in cvs"
+					},
+					"response": []
+				},
+				{
+					"name": "lightning_strikes_template",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/get_lightning_list?time_range={{start_date}}--{{end_date}}&bounding_box={{latitude_max}},{{longitude_min}}_{{latitude_min}},{{longitude_max}}&format={{format}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"get_lightning_list"
+							],
+							"query": [
+								{
+									"key": "time_range",
+									"value": "{{start_date}}--{{end_date}}",
+									"description": "start_date and end_date must be in the past"
+								},
+								{
+									"key": "bounding_box",
+									"value": "{{latitude_max}},{{longitude_min}}_{{latitude_min}},{{longitude_max}}"
+								},
+								{
+									"key": "format",
+									"value": "{{format}}"
+								}
+							]
+						},
+						"description": "Lightning strikes example with variable fields"
+					},
+					"response": []
+				}
+			],
+			"description": "Here you can find out, when and where a lightning strike occurred in a certain area."
+		},
+		{
+			"name": "NetCDF file",
+			"item": [
+				{
+					"name": "Net_CDF_file",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/todayT00:00:00Z--tomorrowT23:00:00Z:PT12H/t_2m:C/50,-16_20,10:2,2/netcdf?connector=python_v2.1.0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"todayT00:00:00Z--tomorrowT23:00:00Z:PT12H",
+								"t_2m:C",
+								"50,-16_20,10:2,2",
+								"netcdf"
+							],
+							"query": [
+								{
+									"key": "connector",
+									"value": "python_v2.1.0"
+								}
+							]
+						},
+						"description": "NetCDF file example"
+					},
+					"response": []
+				},
+				{
+					"name": "Net_CDF_file_template",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/{{start_date}}--{{end_date}}:P{{duration}}/{{parameter}}/{{latitude_max}},{{longitude_min}}_{{latitude_min}},{{longitude_max}}:{{resolution_lat}},{{resolution_lon}}/netcdf?connector=python_v2.1.0",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"{{start_date}}--{{end_date}}:P{{duration}}",
+								"{{parameter}}",
+								"{{latitude_max}},{{longitude_min}}_{{latitude_min}},{{longitude_max}}:{{resolution_lat}},{{resolution_lon}}",
+								"netcdf"
+							],
+							"query": [
+								{
+									"key": "connector",
+									"value": "python_v2.1.0"
+								}
+							]
+						},
+						"description": "NetCDF file example with variable fields"
+					},
+					"response": []
+				}
+			],
+			"description": "This query provides you with a timeseries of one parameter over a certain area. You will get the data for a netCDF file, therefore store the output as a binary file. NetCDF is a common file format to share climatological data. You need to have a special program to be able to visualize it."
+		},
+		{
+			"name": "Find stations",
+			"item": [
+				{
+					"name": "find_stations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/find_station?parameters=t_2m:C&startdate=2021-02-28T00Z&enddate=2021-03-01T00Z&location=47,9_46,10&elevation=1300",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"find_station"
+							],
+							"query": [
+								{
+									"key": "parameters",
+									"value": "t_2m:C"
+								},
+								{
+									"key": "startdate",
+									"value": "2021-02-28T00Z"
+								},
+								{
+									"key": "enddate",
+									"value": "2021-03-01T00Z"
+								},
+								{
+									"key": "location",
+									"value": "47,9_46,10"
+								},
+								{
+									"key": "elevation",
+									"value": "1300"
+								}
+							]
+						},
+						"description": "Find stations example"
+					},
+					"response": []
+				},
+				{
+					"name": "find_stations_template",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/find_station?parameters={{parameter}}&startdate={{start_date}}&enddate={{end_date}}&location={{latitude_max}},{{longitude_min}}_{{latitude_min}},{{longitude_max}}&elevation={{elevation}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"find_station"
+							],
+							"query": [
+								{
+									"key": "parameters",
+									"value": "{{parameter}}"
+								},
+								{
+									"key": "startdate",
+									"value": "{{start_date}}"
+								},
+								{
+									"key": "enddate",
+									"value": "{{end_date}}"
+								},
+								{
+									"key": "location",
+									"value": "{{latitude_max}},{{longitude_min}}_{{latitude_min}},{{longitude_max}}"
+								},
+								{
+									"key": "elevation",
+									"value": "{{elevation}}"
+								}
+							]
+						},
+						"description": "Find station example with variable fields"
+					},
+					"response": []
+				}
+			],
+			"description": "With this query you can find stations that fit to your requirements."
+		},
+		{
+			"name": "Get init dates",
+			"item": [
+				{
+					"name": "get_init_dates",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/get_init_date?model=ecmwf-ens&valid_date=2021-03-02T00:00:00+00:00--2021-03-04T00:00:00+00:00:PT3H&parameters=t_2m:C",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"get_init_date"
+							],
+							"query": [
+								{
+									"key": "model",
+									"value": "ecmwf-ens"
+								},
+								{
+									"key": "valid_date",
+									"value": "2021-03-02T00:00:00+00:00--2021-03-04T00:00:00+00:00:PT3H"
+								},
+								{
+									"key": "parameters",
+									"value": "t_2m:C"
+								}
+							]
+						},
+						"description": "Get init dates example"
+					},
+					"response": []
+				},
+				{
+					"name": "get_init_dates_template",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/get_init_date?model={{model}}&valid_date={{start_date}}--{{end_date}}:P{{duration}}&parameters={{parameter}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"get_init_date"
+							],
+							"query": [
+								{
+									"key": "model",
+									"value": "{{model}}"
+								},
+								{
+									"key": "valid_date",
+									"value": "{{start_date}}--{{end_date}}:P{{duration}}"
+								},
+								{
+									"key": "parameters",
+									"value": "{{parameter}}"
+								}
+							]
+						},
+						"description": "Get init dates example with variable fields"
+					},
+					"response": []
+				}
+			],
+			"description": "This query provides you with the date and time of the model that is used."
+		},
+		{
+			"name": "Get available time range",
+			"item": [
+				{
+					"name": "get_available_time_range",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/get_time_range?model=ukmo-euro4&parameters=t_2m:C,precip_6h:mm,relative_humidity_2m:p",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"get_time_range"
+							],
+							"query": [
+								{
+									"key": "model",
+									"value": "ukmo-euro4"
+								},
+								{
+									"key": "parameters",
+									"value": "t_2m:C,precip_6h:mm,relative_humidity_2m:p"
+								}
+							]
+						},
+						"description": "Get available time range example"
+					},
+					"response": []
+				},
+				{
+					"name": "get_available_time_range_template",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://api.meteomatics.com/get_time_range?model={{model}}&parameters={{parameters}}",
+							"protocol": "https",
+							"host": [
+								"api",
+								"meteomatics",
+								"com"
+							],
+							"path": [
+								"get_time_range"
+							],
+							"query": [
+								{
+									"key": "model",
+									"value": "{{model}}"
+								},
+								{
+									"key": "parameters",
+									"value": "{{parameters}}"
+								}
+							]
+						},
+						"description": "Get available time range example with variable fields"
+					},
+					"response": []
+				}
+			],
+			"description": "With this query you can find out which time range is available for a selected model."
+		},
+		{
+			"name": "simple_get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": ""
+				},
+				"description": "Single location, single point in time, single parameter"
+			},
+			"response": []
+		},
+		{
+			"name": "simple_post",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"validdate\":\"todayT12Z\",\n\"parameter\":\"t_2m:C\",\n\"location\":\"48,5\",\n\"format\":\"csv\"}"
+				},
+				"url": {
+					"raw": "https://api.meteomatics.com",
+					"protocol": "https",
+					"host": [
+						"api",
+						"meteomatics",
+						"com"
+					]
+				},
+				"description": "Getting a single parameter for a single location at a single validdate"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "basic",
+		"basic": [
+			{
+				"key": "username",
+				"value": "postman_community",
+				"type": "string"
+			},
+			{
+				"key": "password",
+				"value": "RMNPMd2wDqBJ",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "start_date",
+			"value": "todayT00:00:00Z"
+		},
+		{
+			"key": "end_date",
+			"value": "tomorrowT23:00:00Z"
+		},
+		{
+			"key": "duration",
+			"value": "5D"
+		},
+		{
+			"key": "resolution",
+			"value": "T1H"
+		},
+		{
+			"key": "parameter",
+			"value": "t_2m:C",
+			"type": "string"
+		},
+		{
+			"key": "parameters",
+			"value": "t_2m:C,precip_1h:mm,wind_speed_10m:ms"
+		},
+		{
+			"key": "location",
+			"value": "46.413,8.512"
+		},
+		{
+			"key": "latitude_max",
+			"value": "50",
+			"type": "string"
+		},
+		{
+			"key": "latitude_min",
+			"value": "40",
+			"type": "string"
+		},
+		{
+			"key": "longitude_max",
+			"value": "5",
+			"type": "string"
+		},
+		{
+			"key": "longitude_min",
+			"value": "-5",
+			"type": "string"
+		},
+		{
+			"key": "resolution_lat",
+			"value": "0.5",
+			"type": "string"
+		},
+		{
+			"key": "format",
+			"value": "json"
+		},
+		{
+			"key": "resolution_lon",
+			"value": "0.5",
+			"type": "string"
+		},
+		{
+			"key": "elevation",
+			"value": "1300",
+			"type": "string"
+		},
+		{
+			"key": "model",
+			"value": "ecmwf-ens",
+			"type": "string"
+		}
+	]
+}
