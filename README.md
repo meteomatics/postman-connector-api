@@ -1,4 +1,7 @@
-# Postman connector to the [Meteomatics Weather API](https://www.meteomatics.com/en/weather-api/)
+[![logo](https://static.meteomatics.com/meteomatics-logo.png)](https://www.meteomatics.com "Meteomatics - Your Experts in Weather Data Processing")
+
+Postman connector to the [Meteomatics Weather API](https://www.meteomatics.com/en/weather-api/)
+========================================================================================
 
 Meteomatics provides a REST-style API to retrieve historic, current, and forecast data globally. This includes model data and observational data in time series and areal formats. Areal formats are also offered through a WMS/WFS-compatible interface. Geographic and time series data can be combined in certain file formats, such as NetCDF.
 
